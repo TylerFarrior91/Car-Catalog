@@ -1,5 +1,4 @@
-// App.js
-
+// This is the main component of the application. It contains the header and the CarCatalog component.
 import React from 'react';
 import './App.css'; // Import global styles
 import CarCatalog from './components/CarCatalog/CarCatalog'; // Import CarCatalog component
