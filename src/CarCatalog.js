@@ -15,10 +15,8 @@ const CarCatalog = () => {
 
     const fetchCars = async () => {
         try {
-            const result = await fetch('https://dev-test-frontend-werpwe2p3q-uc.a.run.app/cars').then((response) => { console.log(response.headers) })
-
             const response = await axios.get('https://dev-test-frontend-werpwe2p3q-uc.a.run.app/cars');
-            console.log(response.headers['Your-Token']);
+            console.log(response);
             setCars(response.data.cars);
             setMakes(response.data.allMakes);
             setToken(response.headers['Your-Token']);
@@ -30,13 +28,14 @@ const CarCatalog = () => {
     const fetchCarDetails = async (carId) => {
         console.log(token);
         try {
-            const response = await axios.get(`https://dev-test-frontend-werpwe2p3q-uc.a.run.app/cars/${carId}`, {
-                headers: {
-                    Authorization: token,
-                    Accept: 'application/json'
-                },
 
-            });
+            const response = fetch(`https://dev-test-frontend-werpwe2p3q-uc.a.run.app/cars/${carId}`, {
+                headers: {
+                    Authorization: 'QJFhNAYzBJpU_TeIO3ATApJQZKY=',
+                    "Content-Type": "text/plain",
+                    'Access-Control-Allow-Origin': '*',
+                }
+            })
 
 
 
