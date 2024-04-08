@@ -38,10 +38,11 @@ const CarCatalog = () => {
     }, []);
 
     const fetchAllCars = async () => {
-        // Simulate API call to fetch all cars
-        // Replace this with actual API call logic
-        return new Promise((resolve, reject) => {
+       
+        return new Promise((resolve) => {
             setTimeout(() => {
+                resolve([...cars]);
+            },2000);
                 const allCars = [
                     {
                         "id": "wj6qg7zpt09udm1m",
