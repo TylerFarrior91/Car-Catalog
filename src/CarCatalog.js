@@ -34,10 +34,38 @@ const CarCatalog = () => {
     };
 
     useEffect(() => {
-        // This is where you would fetch all cars from your API
-        // Replace this with your actual API call
-        // fetchAllCars().then(setAllCars);
+        fetchAllCars().then(setCars);
     }, []);
+
+    const fetchAllCars = async () => {
+        // Simulate API call to fetch all cars
+        // Replace this with actual API call logic
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                const allCars = [
+                    {
+                        "id": "wj6qg7zpt09udm1m",
+                        "year": 2016,
+                        "make": "Honda",
+                        "model": "Civic"
+                    },
+                    {
+                        "id": "qwo1x40id6dav601",
+                        "year": 2019,
+                        "make": "Toyota",
+                        "model": "Corolla"
+                    },
+                    {
+                        "id": "bn6vgka1arprqz38",
+                        "year": 2021,
+                        "make": "Ford",
+                        "model": "F-150"
+                    }
+                ];
+                resolve(allCars);
+            }, 1000); // Simulating delay of 1 second
+        });
+    };
 
     const handleCloseDetails = () => {
         setSelectedCar(null);
