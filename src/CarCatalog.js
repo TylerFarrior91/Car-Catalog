@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 const CarCatalog = () => {
-    const [cars] = useState([
+    const [cars, setCars] = useState([
         {
             "id": "wj6qg7zpt09udm1m",
             "year": 2016,
@@ -33,16 +33,11 @@ const CarCatalog = () => {
         setSelectedCar(car);
     };
 
-    useEffect(() => {
-        fetchAllCars().then(setCars);
-    }, []);
-
     const fetchAllCars = async () => {
-       
+        // Simulate API call to fetch all cars
+        // Replace this with actual API call logic
         return new Promise((resolve) => {
             setTimeout(() => {
-                resolve([...cars]);
-            },2000);
                 const allCars = [
                     {
                         "id": "wj6qg7zpt09udm1m",
@@ -64,9 +59,13 @@ const CarCatalog = () => {
                     }
                 ];
                 resolve(allCars);
-            }, 1000); // Simulating delay of 1 second
+            }, 2000); // Simulating delay of 2 seconds
         });
     };
+
+    useEffect(() => {
+        fetchAllCars().then(setCars);
+    }, []);
 
     const handleCloseDetails = () => {
         setSelectedCar(null);

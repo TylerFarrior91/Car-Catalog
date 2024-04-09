@@ -21,3 +21,25 @@ body {
   margin: 0 auto;
   padding: 0 20px;
 }
+/* tailwind.css */
+
+/* Responsive layout using flexbox */
+@media screen and (max-width: 768px) {
+  .grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .grid-item {
+    flex: 0 0 50%;
+    margin-bottom: 20px;
+  }
+}
+/* tailwind.css */
+
+/* Hover effect for navigation buttons */
+.nav-button:hover {
+  background-color: #4a90e2;
+  color: #fff;
+}

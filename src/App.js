@@ -1,6 +1,5 @@
-// This is the main component of the application. It contains the header and the CarCatalog component.
 import React from 'react';
-import '.tailwind.css';
+import './tailwind.css'; // Corrected import statement
 import CarCatalog from './components/CarCatalog/CarCatalog'; // Import CarCatalog component
 
 const App = () => {
