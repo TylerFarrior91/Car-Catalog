@@ -1,27 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
 const CarCatalog = () => {
-    const [cars, setCars] = useState([
-        {
-            "id": "wj6qg7zpt09udm1m",
-            "year": 2016,
-            "make": "Honda",
-            "model": "Civic"
-        },
-        {
-            "id": "qwo1x40id6dav601",
-            "year": 2019,
-            "make": "Toyota",
-            "model": "Corolla"
-        },
-        {
-            "id": "bn6vgka1arprqz38",
-            "year": 2021,
-            "make": "Ford",
-            "model": "F-150"
-        }
-    ]);
-    const [allMakes] = useState(["Honda", "Toyota", "Ford", "Ferrari"]);
+    const [cars, setCars] = useState([]);
+    const [allMakes, setAllMakes] = useState([]);
     const [selectedCar, setSelectedCar] = useState(null);
     const [makeFilter, setMakeFilter] = useState("");
 
@@ -34,37 +15,15 @@ const CarCatalog = () => {
     };
 
     const fetchAllCars = async () => {
-        // Simulate API call to fetch all cars
-        // Replace this with actual API call logic
-        return new Promise((resolve) => {
-            setTimeout(() => {
-                const allCars = [
-                    {
-                        "id": "wj6qg7zpt09udm1m",
-                        "year": 2016,
-                        "make": "Honda",
-                        "model": "Civic"
-                    },
-                    {
-                        "id": "qwo1x40id6dav601",
-                        "year": 2019,
-                        "make": "Toyota",
-                        "model": "Corolla"
-                    },
-                    {
-                        "id": "bn6vgka1arprqz38",
-                        "year": 2021,
-                        "make": "Ford",
-                        "model": "F-150"
-                    }
-                ];
-                resolve(allCars);
-            }, 2000); // Simulating delay of 2 seconds
-        });
+        const response = await fetch("https://exam.razoyo.com/api/cars")
+        const data = await response.json();
+        console.log(data);
+        setCars(data.cars);
+        setAllMakes(data.makes);
     };
 
     useEffect(() => {
-        fetchAllCars().then(setCars);
+        fetchAllCars();
     }, []);
 
     const handleCloseDetails = () => {
@@ -74,7 +33,7 @@ const CarCatalog = () => {
     const handleFilterByMake = (make) => {
         setMakeFilter(make);
     };
-
+    console.log(cars);
     return (
         <div>
             <h1>Car Catalog</h1>
@@ -87,7 +46,7 @@ const CarCatalog = () => {
             </select>
 
             <ul>
-                {filteredCars.map((car) => (
+                {cars.map((car) => (
                     <li key={car.id}>
                         <div>{car.make} {car.model}</div>
                         <button onClick={() => fetchCarDetails(car.id)}>Open</button>
