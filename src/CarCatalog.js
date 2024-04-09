@@ -35,29 +35,29 @@ const CarCatalog = () => {
     };
     console.log(cars);
     return (
-        <div>
-            <h1>Car Catalog</h1>
-            <label htmlFor="makeSelect">Select Car Make:</label>
-            <select id="makeSelect" onChange={(e) => handleFilterByMake(e.target.value)}>
+        <div className="container mx-auto p-4">
+            <h1 className="text-3xl font-bold mb-4">Car Catalog</h1>
+            <label htmlFor="makeSelect" className="block mb-2">Select Car Make:</label>
+            <select id="makeSelect" onChange={(e) => handleFilterByMake(e.target.value)} className="border border-gray-300 rounded p-2 mb-4">
                 <option value="">All Makes</option>
                 {allMakes.map((make) => (
                     <option key={make} value={make}>{make}</option>
                 ))}
             </select>
 
-            <ul>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 {cars.map((car) => (
-                    <li key={car.id}>
-                        <div>{car.make} {car.model}</div>
-                        <button onClick={() => fetchCarDetails(car.id)}>Open</button>
+                    <li key={car.id} className="border border-gray-300 rounded p-4">
+                        <div className="font-semibold">{car.make} {car.model}</div>
+                        <button onClick={() => fetchCarDetails(car.id)} className="bg-blue-500 text-white px-4 py-2 rounded mt-2">Open</button>
                     </li>
                 ))}
             </ul>
 
             {selectedCar && (
-                <div>
-                    <h2>{selectedCar.make} {selectedCar.model}</h2>
-                    <button onClick={handleCloseDetails}>Close</button>
+                <div className="mt-8 border border-gray-300 rounded p-4">
+                    <h2 className="text-xl font-semibold mb-2">{selectedCar.make} {selectedCar.model}</h2>
+                    <button onClick={handleCloseDetails} className="bg-red-500 text-white px-4 py-2 rounded">Close</button>
                 </div>
             )}
         </div>

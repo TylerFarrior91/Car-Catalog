@@ -1,26 +1,17 @@
 
-/* tailwind.css */
-
-/* Reset default margin and padding */
 * {
   margin: 0;
   padding: 0;
 }
-
-/* Apply a clean and readable font */
 body {
   font-family: Arial, sans-serif;
 }
 
-/* Set a max-width to center content */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
-/* tailwind.css */
-
-/* Responsive layout using flexbox */
 @media screen and (max-width: 768px) {
   .grid {
     display: flex;
@@ -33,9 +24,7 @@ body {
     margin-bottom: 20px;
   }
 }
-/* tailwind.css */
 
-/* Hover effect for navigation buttons */
 .nav-button:hover {
   background-color: #4a90e2;
   color: #fff;
