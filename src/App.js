@@ -1,5 +1,4 @@
 import React from 'react';
-import './tailwind.css'; // Corrected import statement
 import CarCatalog from './components/CarCatalog/CarCatalog'; // Import CarCatalog component
 
 const App = () => {
