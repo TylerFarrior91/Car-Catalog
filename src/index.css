@@ -3,32 +3,46 @@
 @tailwind utilities;
 
 * {
-  margin: 0;
-  padding: 0;
-}
-body {
-  font-family: Arial, sans-serif;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-@media screen and (max-width: 768px) {
-  .grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    margin: 0;
+    padding: 0;
   }
-
-  .grid-item {
-    flex: 0 0 50%;
+  
+  body {
+    font-family: Arial, sans-serif;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .title {
+    text-align: center;
+    font-size: 3rem;
     margin-bottom: 20px;
   }
-}
-
-.nav-button:hover {
-  background-color: #4a90e2;
-  color: #fff;
-}
+  
+  label,
+  .select {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .select {
+    display: none; /* Hide the select by default */
+  }
+  
+  .select:hover {
+    display: block; /* Display the select when hovered over */
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    margin-bottom: 10px;
+  }
+  

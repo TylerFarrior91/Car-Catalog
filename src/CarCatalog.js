@@ -9,15 +9,9 @@ const CarCatalog = () => {
     // Define the derived state filteredCars based on makeFilter
     const filteredCars = makeFilter ? cars.filter(car => car.make === makeFilter) : cars;
 
-    const fetchCarDetails = (carId) => {
-        const car = cars.find(car => car.id === carId);
-        setSelectedCar(car);
-    };
-
     const fetchAllCars = async () => {
-        const response = await fetch("https://exam.razoyo.com/api/cars")
+        const response = await fetch("https://exam.razoyo.com/api/cars");
         const data = await response.json();
-        console.log(data);
         setCars(data.cars);
         setAllMakes(data.makes);
     };
@@ -33,7 +27,15 @@ const CarCatalog = () => {
     const handleFilterByMake = (make) => {
         setMakeFilter(make);
     };
-    console.log(cars);
+
+    const handleCarHover = async (make) => {
+        // Fetch cars for the selected make only when hovering over the car make
+        const response = await fetch(`https://exam.razoyo.com/api/cars?make=${make}`);
+        const data = await response.json();
+        setCars(data.cars);
+        setMakeFilter(make); // Automatically filter by the selected make
+    };
+
     return (
         <div className="container mx-auto p-4">
             <h1 className="text-3xl font-bold mb-4">Car Catalog</h1>
@@ -41,19 +43,20 @@ const CarCatalog = () => {
             <select id="makeSelect" onChange={(e) => handleFilterByMake(e.target.value)} className="border border-gray-300 rounded p-2 mb-4">
                 <option value="">All Makes</option>
                 {allMakes.map((make) => (
-                    <option key={make} value={make}>{make}</option>
+                    <option key={make} value={make} onMouseEnter={() => handleCarHover(make)}>
+                        {make}
+                    </option>
                 ))}
             </select>
-    
+
             <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                {cars.map((car) => (
+                {filteredCars.map((car) => (
                     <li key={car.id} className="border border-gray-300 rounded p-4">
                         <div className="font-semibold">{car.make} {car.model}</div>
-                        <button onClick={() => fetchCarDetails(car.id)} className="bg-blue-500 text-white px-4 py-2 rounded mt-2">Open</button>
+                        <button onClick={() => setSelectedCar(car)} className="bg-blue-500 text-white px-4 py-2 rounded mt-2">Open</button>
                     </li>
                 ))}
             </ul>
-    
             {selectedCar && (
                 <div className="mt-8 border border-gray-300 rounded p-4">
                     <h2 className="text-xl font-semibold mb-2">{selectedCar.make} {selectedCar.model}</h2>
@@ -66,8 +69,6 @@ const CarCatalog = () => {
             )}
         </div>
     );
-    
-
 };
 
 export default CarCatalog;
