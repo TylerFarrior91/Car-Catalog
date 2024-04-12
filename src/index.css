@@ -2,47 +2,86 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Reset default margin and padding */
 * {
     margin: 0;
     padding: 0;
+}
+
+.poppins-thin {
+    font-family: "Poppins", sans-serif;
+    font-weight: 100;
+    font-style: normal;
   }
-  
-  body {
-    font-family: Arial, sans-serif;
-  }
-  
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-  }
-  
-  .title {
+body {
+
+    background-color: #2b2b2c;
+    /* Light gray background */
+}
+
+/* Container styling */
+.container {
+    border-radius: 54px;
+    background: #e0e0e0;
+    box-shadow: -26px -26px 25px #bababa,
+        26px 26px 25px #ffffff;
+}
+
+/* Car Catalog title styling */
+.container h1 {
+    border: .05;
     text-align: center;
-    font-size: 3rem;
-    margin-bottom: 20px;
-  }
-  
-  label,
-  .select {
-    display: block;
-    margin-bottom: 10px;
-  }
-  
-  .select {
-    display: none; /* Hide the select by default */
-  }
-  
-  .select:hover {
-    display: block; /* Display the select when hovered over */
-  }
-  
-  ul {
-    list-style-type: none;
+    /* Center align */
+    font-size: 2.5rem;
+    border-radius: 7px;
+    background: #e0e0e0;
+    box-shadow: 9px 9px 17px #868686,
+        -9px -9px 17px #ffffff;
+}
+
+/* Car make select styling */
+#makeSelect {
+    border-radius: 7px;
+    background: linear-gradient(145deg, #cacaca, #f0f0f0);
+    box-shadow: 6px 6px 13px #acacac,
+        -6px -6px 13px #ffffff;
+}
+
+/* Car list styling */
+.car-list {
+    list-style: none;
+    /* Remove bullet points */
     padding: 0;
-  }
-  
-  li {
-    margin-bottom: 10px;
-  }
-  
+    /* Remove default padding */
+}
+
+.car-item {
+    background-color: #ffffff;
+    /* White background */
+    border-radius: 5px;
+    /* Rounded corners */
+    border: 1px solid #e5e7eb;
+    /* Light gray border */
+    padding: 20px;
+    /* Add padding */
+    margin-bottom: 20px;
+    /* Add spacing between items */
+}
+
+.car-item:hover {
+    background-color: #edf2f7;
+    /* Light blue background on hover */
+}
+
+/* Button styling */
+.button {
+    border-radius: 17px;
+    background: linear-gradient(315deg, #4c4c4c, #404040);
+    box-shadow: -20px -20px 40px #414141,
+        20px 20px 40px #4d4d4d;
+}
+
+.button:hover {
+    background-color: #292f35;
+    /* Dark blue background on hover */
+}

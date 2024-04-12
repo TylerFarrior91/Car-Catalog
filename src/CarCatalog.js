@@ -6,7 +6,7 @@ const CarCatalog = () => {
     const [selectedCar, setSelectedCar] = useState(null);
     const [makeFilter, setMakeFilter] = useState("");
 
-    // Define the derived state filteredCars based on makeFilter
+
     const filteredCars = makeFilter ? cars.filter(car => car.make === makeFilter) : cars;
 
     const fetchAllCars = async () => {
@@ -53,18 +53,18 @@ const CarCatalog = () => {
                 {filteredCars.map((car) => (
                     <li key={car.id} className="border border-gray-300 rounded p-4">
                         <div className="font-semibold">{car.make} {car.model}</div>
-                        <button onClick={() => setSelectedCar(car)} className="bg-blue-500 text-white px-4 py-2 rounded mt-2">Open</button>
+                        <button onClick={() => setSelectedCar(car)} className="bg-yellow-500 text-white px-4 py-2 rounded mt-2">Open</button>
                     </li>
                 ))}
             </ul>
             {selectedCar && (
                 <div className="mt-8 border border-gray-300 rounded p-4">
                     <h2 className="text-xl font-semibold mb-2">{selectedCar.make} {selectedCar.model}</h2>
+                    <img src={selectedCar.image} alt={`${selectedCar.make} ${selectedCar.model}`} />
                     <p>Year: {selectedCar.year}</p>
                     <p>Price: {selectedCar.price}</p>
                     <p>MPG: {selectedCar.mpg}</p>
                     <p>Seats: {selectedCar.seats}</p>
-                    <p>img src={selectedCar.image}</p>
                     <button onClick={handleCloseDetails} className="bg-red-500 text-white px-4 py-2 rounded">Close</button>
                 </div>
             )}
