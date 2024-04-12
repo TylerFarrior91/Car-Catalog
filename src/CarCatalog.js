@@ -64,6 +64,7 @@ const CarCatalog = () => {
                     <p>Price: {selectedCar.price}</p>
                     <p>MPG: {selectedCar.mpg}</p>
                     <p>Seats: {selectedCar.seats}</p>
+                    <p>img src={selectedCar.image}</p>
                     <button onClick={handleCloseDetails} className="bg-red-500 text-white px-4 py-2 rounded">Close</button>
                 </div>
             )}
