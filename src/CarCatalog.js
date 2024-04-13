@@ -38,12 +38,16 @@ const CarCatalog = () => {
 
     return (
         <div className="container mx-auto p-4">
-            <h1 className="text-3xl font-bold mb-4">Car Catalog</h1>
+            <div className='text-center'> <h1 className="text-3xl font-bold mb-4">Car Catalog</h1> </div>
             <label htmlFor="makeSelect" className="block mb-2">Select Car Make:</label>
-            <select id="makeSelect" onChange={(e) => handleFilterByMake(e.target.value)} className="border border-gray-300 rounded p-2 mb-4">
+            <select id="makeSelect" onChange={(e) => {
+                handleCloseDetails()
+                handleFilterByMake(e.target.value)
+            }} className="border border-gray-300 rounded p-2 mb-4">
                 <option value="">All Makes</option>
                 {allMakes.map((make) => (
-                    <option key={make} value={make} onMouseEnter={() => handleCarHover(make)}>
+                    <option key={make} value={make} onMouseEnter={() => handleCarHover(make)}
+                    >
                         {make}
                     </option>
                 ))}
@@ -62,7 +66,7 @@ const CarCatalog = () => {
                     <h2 className="text-xl font-semibold mb-2">{selectedCar.make} {selectedCar.model}</h2>
                     <img src={selectedCar.image} alt={`${selectedCar.make} ${selectedCar.model}`} />
                     <p>Year: {selectedCar.year}</p>
-                    <p>Price: {selectedCar.price}</p>
+                    <p>Price: ${selectedCar.price}</p>
                     <p>MPG: {selectedCar.mpg}</p>
                     <p>Seats: {selectedCar.seats}</p>
                     <button onClick={handleCloseDetails} className="bg-red-500 text-white px-4 py-2 rounded">Close</button>

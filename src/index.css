@@ -12,15 +12,17 @@
     font-family: "Poppins", sans-serif;
     font-weight: 100;
     font-style: normal;
-  }
-body {
+}
 
+body {
+padding: 2rem;
     background-color: #2b2b2c;
     /* Light gray background */
 }
 
 /* Container styling */
 .container {
+    padding: 4rem;
     border-radius: 54px;
     background: #e0e0e0;
     box-shadow: -26px -26px 25px #bababa,
@@ -29,14 +31,13 @@ body {
 
 /* Car Catalog title styling */
 .container h1 {
+    margin: 0 auto;
+    display: inline-block;
     border: .05;
     text-align: center;
-    /* Center align */
     font-size: 2.5rem;
     border-radius: 7px;
-    background: #e0e0e0;
-    box-shadow: 9px 9px 17px #868686,
-        -9px -9px 17px #ffffff;
+
 }
 
 /* Car make select styling */
