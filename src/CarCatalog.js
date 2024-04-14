@@ -62,14 +62,18 @@ const CarCatalog = () => {
                 ))}
             </ul>
             {selectedCar && (
-                <div className="mt-8 border border-gray-300 rounded p-4">
-                    <h2 className="text-xl font-semibold mb-2">{selectedCar.make} {selectedCar.model}</h2>
-                    <img src={selectedCar.image} alt={`${selectedCar.make} ${selectedCar.model}`} />
-                    <p>Year: {selectedCar.year}</p>
-                    <p>Price: ${selectedCar.price.toLocaleString()}</p>
-                    <p>MPG: {selectedCar.mpg}</p>
-                    <p>Seats: {selectedCar.seats}</p>
-                    <button onClick={handleCloseDetails} className="bg-red-500 text-white px-4 py-2 rounded">Close</button>
+                <div className="mt-8 border border-gray-500 rounded p-4 flex">
+                <div>
+                <img src={selectedCar.image} alt={`${selectedCar.make} ${selectedCar.model}`} />
+                </div>
+                <div>
+                <h2 className="text-xl font-semibold mb-2">{selectedCar.make} {selectedCar.model}</h2>
+                <p>Year: {selectedCar.year}</p>
+                <p>Price: ${selectedCar.price.toLocaleString()}</p>
+                <p>MPG: {selectedCar.mpg}</p>
+                <p>Seats: {selectedCar.seats}</p>
+                <button onClick={handleCloseDetails} className="bg-red-500 text-white px-4 py-2 rounded">Close</button>
+                </div>
                 </div>
             )}
         </div>
