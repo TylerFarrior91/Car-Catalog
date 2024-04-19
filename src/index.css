@@ -94,4 +94,7 @@ img {
 .text-container {
     margin-left: 20px;
 }
-
+.flex-direction {
+    columns: 2 
+    }
+    ;
