@@ -64,7 +64,8 @@ const CarCatalog = () => {
             {selectedCar && (
                 <div className="mt-8 border border-gray-500 rounded p-4 flex">
                 <div>
-                <img src={selectedCar.image} alt={`${selectedCar.make} ${selectedCar.model}`} />
+                <img src={selectedCar.image} alt={`${selectedCar.make} ${selectedCar.model}`} 
+                classname="md:mr-5 mb-5 md:mb-0"/>
                 </div>
                 <div>
                 <h2 className="text-xl font-semibold mb-2">{selectedCar.make} {selectedCar.model}</h2>
