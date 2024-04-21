@@ -55,7 +55,7 @@ const CarCatalog = () => {
 
             <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 {filteredCars.map((car) => (
-                    <li key={car.id} className="border border-gray-300 rounded p-4">
+                    <li key={car.id} className="border border-gray-500 rounded p-4">
                         <div className="font-semibold">{car.make} {car.model}</div>
                         <button onClick={() => setSelectedCar(car)} className="bg-yellow-500 text-white px-4 py-2 rounded mt-2">Open</button>
                     </li>
