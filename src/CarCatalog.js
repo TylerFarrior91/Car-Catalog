@@ -63,9 +63,8 @@ const CarCatalog = () => {
             </ul>
             {selectedCar && (
                 <div className="mt-8 border border-gray-500 rounded p-4 flex">
-                    <div>
+                    <div className="md:mr-8 mb-5 md:mb-0 mr-3">
                         <img src={selectedCar.image} alt={`${selectedCar.make} ${selectedCar.model}`}
-                            classname="md:mr-5 mb-5 md:mb-0"
                         />
                     </div>
                     <div>
